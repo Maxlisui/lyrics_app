@@ -3,4 +3,5 @@
     <string name="login_btn_name">Login using Spotify</string>
     <string name="login_failed">Login Failed!</string>
     <string name="spotify_base_url">https://api.spotify.com/v1/</string>
+    <string name="no_song_playing_lbl">No song currently playing!</string>
 </resources>
