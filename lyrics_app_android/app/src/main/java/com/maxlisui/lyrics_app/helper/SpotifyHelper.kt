@@ -15,23 +15,26 @@ import java.text.SimpleDateFormat
 import java.time.Instant
 import java.util.*
 
-class SpotifyHelper(private val accessToken: String, private val baseUrl: String, private val onNewSong: SpotifySongToVoidAction) {
+class SpotifyHelper(private val accessToken: String, private val baseUrl: String) {
     private val client: OkHttpClient = OkHttpClient()
 
-    fun getCurrentSong() {
+    fun getCurrentSong(onNewSong: SpotifySongToVoidAction) {
         val request = prepareRequest("me/player").build()
 
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {}
             override fun onResponse(call: Call, response: Response) {
+                var s = SpotifySong()
                 if(response.body != null) {
                     try {
-                        val s = parseSpotifySong(JSONObject(response.body!!.string()))
-                        onNewSong(s)
+                        s = parseSpotifySong(JSONObject(response.body!!.string()))
                     } catch (ex: Exception) {
                         Log.e(SPOTIFY_HELPER_LOG_HELPER, "Error while parsing JSON\n" + response.body, ex)
+                        s.isPlaying = false
+                        s.id = "-1"
+                    } finally {
+                        onNewSong(s)
                     }
-
                 }
             }
         })
@@ -51,11 +54,11 @@ class SpotifyHelper(private val accessToken: String, private val baseUrl: String
         val songJson = json.optJSONObject("item")
         if(songJson != null) {
             s.name = songJson.optString("name")
+            s.id = songJson.optString("id")
 
             val jsonAlbum = songJson.optJSONObject("album")
             if(jsonAlbum != null) {
                 s.album.name = jsonAlbum.optString("name")
-                s.album.releaseDate = SimpleDateFormat("yyyy-MM-dd").parse(jsonAlbum.optString("release_date")).toInstant()
             }
 
             val artistsArray = songJson.optJSONArray("artists")
