@@ -4,4 +4,5 @@
     <string name="login_failed">Login Failed!</string>
     <string name="spotify_base_url">https://api.spotify.com/v1/</string>
     <string name="no_song_playing_lbl">No song currently playing!</string>
+    <string name="genius_base_url">https://api.genius.com/</string>
 </resources>
