@@ -44,3 +44,7 @@ $ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug
 
 ## Wanna help?
 Sure 😁
+
+## License
+
+[MIT](LICENSE.md)
