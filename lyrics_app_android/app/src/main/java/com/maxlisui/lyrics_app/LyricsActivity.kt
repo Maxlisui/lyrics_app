@@ -2,9 +2,12 @@ package com.maxlisui.lyrics_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Visibility
 import android.util.Log
 import android.view.Gravity
+import android.view.View
 import android.widget.LinearLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import com.maxlisui.lyrics_app.helper.GeniusHelper
 import com.maxlisui.lyrics_app.helper.SpotifyHelper
@@ -15,7 +18,9 @@ class LyricsActivity : AppCompatActivity() {
 
     private lateinit var playingTextView: TextView
     private lateinit var lyricsTextView: TextView
-    private lateinit var lyricsLinearLayout: LinearLayout
+    private lateinit var noLyricsTextView: TextView
+    private lateinit var noLyricsScrollView: ScrollView
+    private lateinit var lyricsScrollView: ScrollView
     private lateinit var spotifyThread: Thread
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +29,9 @@ class LyricsActivity : AppCompatActivity() {
         val token = intent.getStringExtra(ACCESS_TOKEN)
         playingTextView = findViewById(R.id.playingTextView)
         lyricsTextView = findViewById(R.id.lyricsTextView)
-        lyricsLinearLayout = findViewById(R.id.lyricsLinearLayout)
+        noLyricsTextView = findViewById(R.id.noLyricsTextView)
+        noLyricsScrollView = findViewById(R.id.noLyricsScrollView)
+        lyricsScrollView = findViewById(R.id.lyricsScrollView)
         if(token != null) {
             val helper = SpotifyHelper(token, getString(R.string.spotify_base_url))
             val sp = SpotifyThread(helper) {onNewSong(it)}
@@ -46,7 +53,9 @@ class LyricsActivity : AppCompatActivity() {
                 if(it.isNotEmpty()) {
                     runOnUiThread {
                         lyricsTextView.text = it
-
+                        lyricsScrollView.visibility = View.VISIBLE
+                        lyricsScrollView.scrollTo(0, 0)
+                        noLyricsScrollView.visibility = View.INVISIBLE
                     }
                 }
             }

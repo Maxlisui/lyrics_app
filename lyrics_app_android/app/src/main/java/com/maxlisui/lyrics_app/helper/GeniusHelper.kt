@@ -15,6 +15,7 @@ class GeniusHelper(private val baseUrl: String, private val accessToken: String,
     private val client: OkHttpClient = OkHttpClient()
     private val tagRegex = Regex("(<.*?>)")
     private val newLineRegex = Regex("(<br />|<br/>|<br>)")
+    private val linkRegex = Regex("(<a.*?>)", RegexOption.DOT_MATCHES_ALL)
     private val tooMuchNewLineRegex = Regex("\\s+\\n\\n")
 
     fun getSongLyrics(songName: String, artistName: String) {
@@ -77,7 +78,7 @@ class GeniusHelper(private val baseUrl: String, private val accessToken: String,
                         continue
                     }
 
-                    val lyrics = lyricsElement.html().replace(newLineRegex, "\n").replace(tagRegex, "").replace(tooMuchNewLineRegex, "").trim()
+                    val lyrics = lyricsElement.html().replace(linkRegex, "").replace(newLineRegex, "\n").replace(tagRegex, "").replace(tooMuchNewLineRegex, "").trim()
                     if(lyrics.isNotEmpty()) return lyrics
                 }
             }
