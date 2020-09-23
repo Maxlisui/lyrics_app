@@ -3,6 +3,7 @@ package com.maxlisui.lyrics_app.helper
 import android.util.Log
 import com.maxlisui.lyrics_app.GENIUS_HELPER_LOG_HELPER
 import com.maxlisui.lyrics_app.StringToVoidAction
+import com.snappydb.DB
 import okhttp3.*
 import org.json.JSONObject
 import org.jsoup.Jsoup
@@ -11,14 +12,33 @@ import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
 import java.util.*
 
-class GeniusHelper(private val baseUrl: String, private val accessToken: String, private val onNewLyrics: StringToVoidAction) {
+class GeniusHelper(private val baseUrl: String, private val accessToken: String, private val lyricsDB: DB, private val onNewLyrics: StringToVoidAction) {
     private val client: OkHttpClient = OkHttpClient()
     private val tagRegex = Regex("(<.*?>)")
     private val newLineRegex = Regex("(<br />|<br/>|<br>)")
     private val linkRegex = Regex("(<a.*?>)", RegexOption.DOT_MATCHES_ALL)
     private val tooMuchNewLineRegex = Regex("\\s+\\n\\n")
 
-    fun getSongLyrics(songName: String, artistName: String) {
+    fun getSongLyrics(songId: String, songName: String, artistName: String) {
+        if(!songId.isBlank()) {
+            var lyrics: String? = null
+            try {
+                lyrics = lyricsDB.get(songId)
+            } catch (ex: Exception) {
+                // Ignore
+            }
+
+            if(lyrics != null && !lyrics.isBlank()) {
+                onNewLyrics(lyrics)
+            } else {
+                downloadLyrics(songId, songName, artistName)
+            }
+        } else {
+            downloadLyrics(songId, songName, artistName)
+        }
+    }
+
+    private fun downloadLyrics(songId: String, songName: String, artistName: String) {
         var path = "search?q="
         try {
             path += URLEncoder.encode("$songName $artistName", StandardCharsets.UTF_8.toString())
@@ -35,7 +55,7 @@ class GeniusHelper(private val baseUrl: String, private val accessToken: String,
 
             override fun onResponse(call: Call, response: Response) {
                 if(response.body != null) {
-                    val lyrics = getLyricsFromResponse(JSONObject(response.body!!.string()), songName, artistName)
+                    val lyrics = getLyricsFromResponse(JSONObject(response.body!!.string()), songId, songName, artistName)
                     onNewLyrics(lyrics)
                 }
             }
@@ -43,7 +63,7 @@ class GeniusHelper(private val baseUrl: String, private val accessToken: String,
         })
     }
 
-    private fun getLyricsFromResponse(json: JSONObject, songTitle: String, artist: String): String {
+    private fun getLyricsFromResponse(json: JSONObject, songId: String, songTitle: String, artist: String): String {
         val responseJson = json.optJSONObject("response") ?: return ""
         val hits = responseJson.optJSONArray("hits") ?: return ""
 
@@ -79,7 +99,17 @@ class GeniusHelper(private val baseUrl: String, private val accessToken: String,
                     }
 
                     val lyrics = lyricsElement.html().replace(linkRegex, "").replace(newLineRegex, "\n").replace(tagRegex, "").replace(tooMuchNewLineRegex, "").trim()
-                    if(lyrics.isNotEmpty()) return lyrics
+                    if(lyrics.isNotEmpty()) {
+                        if(songId.isNotBlank()) {
+                            try {
+                                lyricsDB.put(songId, lyrics)
+                            } catch (ex: Exception) {
+                                // Ignore
+                            }
+
+                        }
+                        return lyrics
+                    }
                 }
             }
         }
