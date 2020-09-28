@@ -14,6 +14,7 @@
 		34669B952521145D007C6AC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34669B942521145D007C6AC2 /* Assets.xcassets */; };
 		34669B982521145D007C6AC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34669B962521145D007C6AC2 /* LaunchScreen.storyboard */; };
 		346AF72F25225CCB00FE81AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF72E25225CCB00FE81AA /* Constants.swift */; };
+		346AF7352522682400FE81AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF7342522682300FE81AA /* LoginViewController.swift */; };
 		3C99BDE0FB8A93BCCAE20C98 /* Pods_lyrics_app_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8EC5516A3492C287AF784 /* Pods_lyrics_app_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		34669B972521145D007C6AC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34669B992521145D007C6AC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		346AF72E25225CCB00FE81AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		346AF7342522682300FE81AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		47C1A68DCB06CA204662CBDD /* Pods-lyrics_app_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrics_app_ios.release.xcconfig"; path = "Target Support Files/Pods-lyrics_app_ios/Pods-lyrics_app_ios.release.xcconfig"; sourceTree = "<group>"; };
 		6AFB88A4C80C26EAB8D94849 /* Pods-lyrics_app_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrics_app_ios.debug.xcconfig"; path = "Target Support Files/Pods-lyrics_app_ios/Pods-lyrics_app_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				34669B942521145D007C6AC2 /* Assets.xcassets */,
 				34669B962521145D007C6AC2 /* LaunchScreen.storyboard */,
 				34669B992521145D007C6AC2 /* Info.plist */,
+				346AF7342522682300FE81AA /* LoginViewController.swift */,
 			);
 			path = lyrics_app_ios;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346AF7352522682400FE81AA /* LoginViewController.swift in Sources */,
 				34669B902521145B007C6AC2 /* ViewController.swift in Sources */,
 				34669B8C2521145B007C6AC2 /* AppDelegate.swift in Sources */,
 				34669B8E2521145B007C6AC2 /* SceneDelegate.swift in Sources */,

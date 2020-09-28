@@ -2,31 +2,18 @@ import UIKit
 import SpotifyLogin
 
 class ViewController: UIViewController {
-
-    var loginButton: UIButton?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        let button = SpotifyLoginButton(viewController: self, scopes: [.userReadPlaybackState, .userReadCurrentlyPlaying])
-        self.loginButton = button
-        self.view.addSubview(button)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(loginSucessful), name: .SpotifyLoginSuccessful, object: nil)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        SpotifyLogin.shared.getAccessToken { [weak self] (token, error) in
+            if error != nil, token == nil {
+                self?.gotToLogin()
+            }
+        }
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        loginButton?.center = self.view.center
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    @objc func loginSucessful() {
-        print("YEAH")
+    func gotToLogin() {
+        self.performSegue(withIdentifier: "go_to_login", sender: self)
     }
 }
 
