@@ -138,3 +138,4 @@ xcuserdata
 
 /Pods
 Podfile.lock
+lyrics_app_ios/Helper/Constants.swift
