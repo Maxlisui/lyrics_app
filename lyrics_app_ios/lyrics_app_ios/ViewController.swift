@@ -5,6 +5,14 @@ class ViewController: UIViewController {
     
     private var spotifyThread: SpotifyThread!
     @IBOutlet weak var songLabel: UILabel!
+    @IBOutlet weak var lyricsLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        songLabel.text = NSLocalizedString("no_song_playing_lbl", comment: "")
+        lyricsLabel.text = NSLocalizedString("no_song_playing_lbl", comment: "")
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -14,11 +22,8 @@ class ViewController: UIViewController {
                 return
             }
             
-            let helper = SpotifyHelper(accessToken: token!, baseUrl: "https://api.spotify.com/v1/")
-            
+            let helper = SpotifyHelper(accessToken: token!, baseUrl: Constants.spotifyBaseUrl)
             self?.spotifyThread = SpotifyThread(spotifyHelper: helper) { (song) in self?.onNewSong(song: song) }
-
-            
             self?.spotifyThread.run()
         }
     }
@@ -28,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     func onNewSong(song: SpotifySong) {
-        var displayValue = ""
+        var displayValue = NSLocalizedString("no_song_playing_lbl", comment: "")
         if song.isPlaying && song.currentlyPlayingType == "track" {
             displayValue = song.name
             if song.artists.count > 0 {

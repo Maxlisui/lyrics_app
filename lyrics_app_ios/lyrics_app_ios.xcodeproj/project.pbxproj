@@ -20,6 +20,7 @@
 		346FEEDE252395F100B36662 /* SpotifyAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEEDD252395F100B36662 /* SpotifyAlbum.swift */; };
 		346FEEE02523967500B36662 /* SpotifyArtist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEEDF2523967500B36662 /* SpotifyArtist.swift */; };
 		34F846292523A78B009986AE /* SpotifyThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F846282523A78B009986AE /* SpotifyThread.swift */; };
+		34F8462E2523C5F2009986AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34F846302523C5F2009986AE /* Localizable.strings */; };
 		3C99BDE0FB8A93BCCAE20C98 /* Pods_lyrics_app_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8EC5516A3492C287AF784 /* Pods_lyrics_app_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		346FEEDD252395F100B36662 /* SpotifyAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyAlbum.swift; sourceTree = "<group>"; };
 		346FEEDF2523967500B36662 /* SpotifyArtist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyArtist.swift; sourceTree = "<group>"; };
 		34F846282523A78B009986AE /* SpotifyThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyThread.swift; sourceTree = "<group>"; };
+		34F8462F2523C5F2009986AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		47C1A68DCB06CA204662CBDD /* Pods-lyrics_app_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrics_app_ios.release.xcconfig"; path = "Target Support Files/Pods-lyrics_app_ios/Pods-lyrics_app_ios.release.xcconfig"; sourceTree = "<group>"; };
 		6AFB88A4C80C26EAB8D94849 /* Pods-lyrics_app_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lyrics_app_ios.debug.xcconfig"; path = "Target Support Files/Pods-lyrics_app_ios/Pods-lyrics_app_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +93,7 @@
 				34669B8D2521145B007C6AC2 /* SceneDelegate.swift */,
 				34669B8F2521145B007C6AC2 /* ViewController.swift */,
 				34669B912521145B007C6AC2 /* Main.storyboard */,
+				34F846302523C5F2009986AE /* Localizable.strings */,
 				34669B942521145D007C6AC2 /* Assets.xcassets */,
 				34669B962521145D007C6AC2 /* LaunchScreen.storyboard */,
 				34669B992521145D007C6AC2 /* Info.plist */,
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34669B982521145D007C6AC2 /* LaunchScreen.storyboard in Resources */,
+				34F8462E2523C5F2009986AE /* Localizable.strings in Resources */,
 				34669B952521145D007C6AC2 /* Assets.xcassets in Resources */,
 				34669B932521145B007C6AC2 /* Main.storyboard in Resources */,
 			);
@@ -273,6 +277,14 @@
 				34669B972521145D007C6AC2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		34F846302523C5F2009986AE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				34F8462F2523C5F2009986AE /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

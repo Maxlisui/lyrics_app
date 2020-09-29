@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="otX-sX-U6X">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -48,56 +48,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVj-Fp-Pyt">
-                                <rect key="frame" x="0.0" y="37" width="414" height="821.33333333333337"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-BX-aGC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="761.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQG-1A-Cys">
+                                <rect key="frame" x="0.0" y="805.5" width="414" height="56.5"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ad-cs-FPV">
+                                <rect key="frame" x="159" y="301" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_login" id="H72-K2-e0L"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_login" id="iMB-c9-sNr"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fOt-rZ-XD2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-wa-A3q">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="841.66666666666663"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQG-1A-Cys">
-                                        <rect key="frame" x="0.0" y="841.66666666666663" width="414" height="20.333333333333371"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="uQG-1A-Cys" secondAttribute="bottom" id="Fqn-H3-PMR"/>
-                                    <constraint firstItem="uQG-1A-Cys" firstAttribute="leading" secondItem="fOt-rZ-XD2" secondAttribute="leading" id="LBl-FC-77N"/>
-                                    <constraint firstItem="uQG-1A-Cys" firstAttribute="top" secondItem="7Fh-wa-A3q" secondAttribute="bottom" id="Tls-Ao-TZJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="uQG-1A-Cys" secondAttribute="trailing" id="iFS-22-aCs"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mKh-io-4F3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="fOt-rZ-XD2" firstAttribute="bottom" secondItem="mKh-io-4F3" secondAttribute="bottom" id="1Xu-9o-A0c"/>
-                            <constraint firstItem="fOt-rZ-XD2" firstAttribute="top" secondItem="Flv-zn-Pqj" secondAttribute="top" id="nzF-dZ-JgR"/>
-                            <constraint firstItem="fOt-rZ-XD2" firstAttribute="leading" secondItem="mKh-io-4F3" secondAttribute="leading" id="xtP-zV-Eua"/>
-                            <constraint firstItem="fOt-rZ-XD2" firstAttribute="trailing" secondItem="mKh-io-4F3" secondAttribute="trailing" id="zgY-5g-hFj"/>
+                            <constraint firstItem="5xI-BX-aGC" firstAttribute="leading" secondItem="mKh-io-4F3" secondAttribute="leading" id="6EV-26-Z4u"/>
+                            <constraint firstItem="mKh-io-4F3" firstAttribute="trailing" secondItem="5xI-BX-aGC" secondAttribute="trailing" id="7s0-R6-5zK"/>
+                            <constraint firstItem="mKh-io-4F3" firstAttribute="bottom" secondItem="5xI-BX-aGC" secondAttribute="bottom" multiplier="1.07" id="Ff8-8n-IF7"/>
+                            <constraint firstItem="5xI-BX-aGC" firstAttribute="top" secondItem="mKh-io-4F3" secondAttribute="top" id="Npj-gf-n7i"/>
+                            <constraint firstItem="uQG-1A-Cys" firstAttribute="trailing" secondItem="mKh-io-4F3" secondAttribute="trailing" id="gNV-uC-vq2"/>
+                            <constraint firstItem="uQG-1A-Cys" firstAttribute="top" secondItem="5xI-BX-aGC" secondAttribute="bottom" id="iuc-ik-uql"/>
+                            <constraint firstItem="uQG-1A-Cys" firstAttribute="leading" secondItem="mKh-io-4F3" secondAttribute="leading" id="oMA-F2-yxi"/>
+                            <constraint firstItem="mKh-io-4F3" firstAttribute="bottom" secondItem="uQG-1A-Cys" secondAttribute="bottom" id="wSA-KU-pjZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Oi6-bZ-JDK"/>
                     <connections>
+                        <outlet property="lyricsLabel" destination="5xI-BX-aGC" id="Klv-K9-igk"/>
                         <outlet property="songLabel" destination="uQG-1A-Cys" id="zj0-FD-WCj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gef-Me-usZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="454" y="102"/>
+            <point key="canvasLocation" x="453.62318840579712" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>
