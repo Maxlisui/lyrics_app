@@ -1,8 +1,8 @@
 import Foundation
 
 class SpotifyHelper {
-    let accessToken: String
-    let baseUrl: String
+    private let accessToken: String
+    private let baseUrl: String
     
     init(accessToken: String, baseUrl: String) {
         self.accessToken = accessToken;
@@ -19,10 +19,6 @@ class SpotifyHelper {
         let session = URLSession.shared
         
         session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
             if let data = data {
                 if let song = SpotifySong(JSONString: String(decoding: data, as: UTF8.self)) {
                     completion(song)

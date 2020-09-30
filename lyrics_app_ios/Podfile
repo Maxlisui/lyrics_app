@@ -8,5 +8,6 @@ target 'lyrics_app_ios' do
   # Pods for lyrics_app_ios
   pod 'SpotifyLogin', '~> 0.1'
   pod 'ObjectMapper', '~> 4.2'
+  pod 'SwiftSoup', '~> 2.3'
 
 end

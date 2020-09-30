@@ -13,6 +13,9 @@
 		34669B932521145B007C6AC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34669B912521145B007C6AC2 /* Main.storyboard */; };
 		34669B952521145D007C6AC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34669B942521145D007C6AC2 /* Assets.xcassets */; };
 		34669B982521145D007C6AC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34669B962521145D007C6AC2 /* LaunchScreen.storyboard */; };
+		346AD8FC2524E0D0005F3E3E /* GeniusHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AD8FB2524E0D0005F3E3E /* GeniusHelper.swift */; };
+		346AD8FF2524F0DE005F3E3E /* GeniusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AD8FE2524F0DE005F3E3E /* GeniusResponse.swift */; };
+		346AD9022524F119005F3E3E /* GeniusHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AD9012524F119005F3E3E /* GeniusHit.swift */; };
 		346AF72F25225CCB00FE81AA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF72E25225CCB00FE81AA /* Constants.swift */; };
 		346AF7352522682400FE81AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346AF7342522682300FE81AA /* LoginViewController.swift */; };
 		346FEED9252393BE00B36662 /* SpotifyHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346FEED8252393BE00B36662 /* SpotifyHelper.swift */; };
@@ -34,6 +37,9 @@
 		34669B942521145D007C6AC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34669B972521145D007C6AC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34669B992521145D007C6AC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		346AD8FB2524E0D0005F3E3E /* GeniusHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeniusHelper.swift; sourceTree = "<group>"; };
+		346AD8FE2524F0DE005F3E3E /* GeniusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeniusResponse.swift; sourceTree = "<group>"; };
+		346AD9012524F119005F3E3E /* GeniusHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeniusHit.swift; sourceTree = "<group>"; };
 		346AF72E25225CCB00FE81AA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		346AF7342522682300FE81AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		346FEED8252393BE00B36662 /* SpotifyHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyHelper.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 				346AF72E25225CCB00FE81AA /* Constants.swift */,
 				346FEED8252393BE00B36662 /* SpotifyHelper.swift */,
 				34F846282523A78B009986AE /* SpotifyThread.swift */,
+				346AD8FB2524E0D0005F3E3E /* GeniusHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				346FEEDB2523953F00B36662 /* SpotifySong.swift */,
 				346FEEDD252395F100B36662 /* SpotifyAlbum.swift */,
 				346FEEDF2523967500B36662 /* SpotifyArtist.swift */,
+				346AD8FE2524F0DE005F3E3E /* GeniusResponse.swift */,
+				346AD9012524F119005F3E3E /* GeniusHit.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,9 +262,12 @@
 				34669B8C2521145B007C6AC2 /* AppDelegate.swift in Sources */,
 				346FEEE02523967500B36662 /* SpotifyArtist.swift in Sources */,
 				34669B8E2521145B007C6AC2 /* SceneDelegate.swift in Sources */,
+				346AD8FC2524E0D0005F3E3E /* GeniusHelper.swift in Sources */,
 				346FEEDE252395F100B36662 /* SpotifyAlbum.swift in Sources */,
 				346FEEDC2523953F00B36662 /* SpotifySong.swift in Sources */,
+				346AD8FF2524F0DE005F3E3E /* GeniusResponse.swift in Sources */,
 				346FEED9252393BE00B36662 /* SpotifyHelper.swift in Sources */,
+				346AD9022524F119005F3E3E /* GeniusHit.swift in Sources */,
 				346AF72F25225CCB00FE81AA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2V7NV8ZJ47;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -434,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2V7NV8ZJ47;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

@@ -5,13 +5,13 @@ class ViewController: UIViewController {
     
     private var spotifyThread: SpotifyThread!
     @IBOutlet weak var songLabel: UILabel!
-    @IBOutlet weak var lyricsLabel: UILabel!
+    @IBOutlet weak var lyricsTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         songLabel.text = NSLocalizedString("no_song_playing_lbl", comment: "")
-        lyricsLabel.text = NSLocalizedString("no_song_playing_lbl", comment: "")
+        lyricsTextView.text = NSLocalizedString("no_song_playing_lbl", comment: "")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +38,17 @@ class ViewController: UIViewController {
             displayValue = song.name
             if song.artists.count > 0 {
                 displayValue += "\n" + song.artists.map { $0.name }.joined(separator: "/")
+                
+                do {
+                    let helper = try GeniusHelper(baseUrl: Constants.geniusBaseUrl, accessToken: Constants.geniusAccessToken) { lyrics in
+                        DispatchQueue.main.async {
+                            self.lyricsTextView.text = lyrics
+                        }
+                    }
+                    helper.getSongLyrics(songId: song.id, songName: song.name, artistName: song.artists[0].name)
+                } catch {
+                    // Ingore
+                }
             }
         }
         DispatchQueue.main.async {
