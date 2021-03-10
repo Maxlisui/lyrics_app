@@ -33,11 +33,13 @@ class ViewController: UIViewController {
     }
     
     func onNewSong(song: SpotifySong) {
-        var displayValue = NSLocalizedString("no_song_playing_lbl", comment: "")
+        var labelText = NSLocalizedString("no_song_playing_lbl", comment: "")
+        var lyricsText = ""
         if song.isPlaying && song.currentlyPlayingType == "track" {
-            displayValue = song.name
+            labelText = song.name
+            lyricsText = NSLocalizedString("fetching_new_lyrics_lbl", comment: "")
             if song.artists.count > 0 {
-                displayValue += "\n" + song.artists.map { $0.name }.joined(separator: "/")
+                labelText += "\n" + song.artists.map { $0.name }.joined(separator: "/")
                 
                 do {
                     let helper = try GeniusHelper(baseUrl: Constants.geniusBaseUrl, accessToken: Constants.geniusAccessToken) { lyrics in
@@ -52,7 +54,10 @@ class ViewController: UIViewController {
             }
         }
         DispatchQueue.main.async {
-            self.songLabel.text = displayValue
+            self.songLabel.text = labelText
+            if !lyricsText.isEmpty {
+                self.lyricsTextView.text = lyricsText
+            }
         }
     }
 }
