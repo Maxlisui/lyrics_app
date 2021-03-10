@@ -9,5 +9,6 @@ target 'lyrics_app_ios' do
   pod 'SpotifyLogin', '~> 0.1'
   pod 'ObjectMapper', '~> 4.2'
   pod 'SwiftSoup', '~> 2.3'
+  pod 'SwiftLvDB', '~> 2.0'
 
 end

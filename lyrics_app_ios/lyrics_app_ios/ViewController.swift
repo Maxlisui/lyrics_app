@@ -1,9 +1,11 @@
 import UIKit
 import SpotifyLogin
+import SwiftLvDB
 
 class ViewController: UIViewController {
     
     private var spotifyThread: SpotifyThread!
+    private var lyricsDB: SwiftLvDB!
     @IBOutlet weak var songLabel: UILabel!
     @IBOutlet weak var lyricsTextView: UITextView!
     
@@ -21,6 +23,8 @@ class ViewController: UIViewController {
                 self?.gotToLogin()
                 return
             }
+            
+            self?.lyricsDB = SwiftLvDB(subName: "lyrics_app_db")
             
             let helper = SpotifyHelper(accessToken: token!, baseUrl: Constants.spotifyBaseUrl)
             self?.spotifyThread = SpotifyThread(spotifyHelper: helper) { (song) in self?.onNewSong(song: song) }
@@ -42,7 +46,7 @@ class ViewController: UIViewController {
                 labelText += "\n" + song.artists.map { $0.name }.joined(separator: "/")
                 
                 do {
-                    let helper = try GeniusHelper(baseUrl: Constants.geniusBaseUrl, accessToken: Constants.geniusAccessToken) { lyrics in
+                    let helper = try GeniusHelper(baseUrl: Constants.geniusBaseUrl, accessToken: Constants.geniusAccessToken, lyricsDB: self.lyricsDB) { lyrics in
                         DispatchQueue.main.async {
                             self.lyricsTextView.text = lyrics
                         }
