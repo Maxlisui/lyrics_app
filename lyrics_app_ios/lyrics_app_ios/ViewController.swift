@@ -13,7 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         songLabel.text = NSLocalizedString("no_song_playing_lbl", comment: "")
-        lyricsTextView.text = NSLocalizedString("no_song_playing_lbl", comment: "")
+        lyricsTextView.changeTextAndCenter(text: NSLocalizedString("no_song_playing_lbl", comment: ""))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
                 do {
                     let helper = try GeniusHelper(baseUrl: Constants.geniusBaseUrl, accessToken: Constants.geniusAccessToken, lyricsDB: self.lyricsDB) { lyrics in
                         DispatchQueue.main.async {
-                            self.lyricsTextView.text = lyrics
+                            self.lyricsTextView.changeTextAndCenter(text: lyrics)
                         }
                     }
                     helper.getSongLyrics(songId: song.id, songName: song.name, artistName: song.artists[0].name)
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         DispatchQueue.main.async {
             self.songLabel.text = labelText
             if !lyricsText.isEmpty {
-                self.lyricsTextView.text = lyricsText
+                self.lyricsTextView.changeTextAndCenter(text: lyricsText)
             }
         }
     }

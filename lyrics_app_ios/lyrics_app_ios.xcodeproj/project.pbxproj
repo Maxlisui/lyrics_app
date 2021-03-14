@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343E50FF25FE6FB400354287 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343E50FE25FE6FB400354287 /* UIHelper.swift */; };
 		34669B8C2521145B007C6AC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34669B8B2521145B007C6AC2 /* AppDelegate.swift */; };
 		34669B8E2521145B007C6AC2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34669B8D2521145B007C6AC2 /* SceneDelegate.swift */; };
 		34669B902521145B007C6AC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34669B8F2521145B007C6AC2 /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		26F8EC5516A3492C287AF784 /* Pods_lyrics_app_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lyrics_app_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		343E50FE25FE6FB400354287 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		34669B882521145B007C6AC2 /* lyrics_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lyrics_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34669B8B2521145B007C6AC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34669B8D2521145B007C6AC2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				346FEED8252393BE00B36662 /* SpotifyHelper.swift */,
 				34F846282523A78B009986AE /* SpotifyThread.swift */,
 				346AD8FB2524E0D0005F3E3E /* GeniusHelper.swift */,
+				343E50FE25FE6FB400354287 /* UIHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				346FEED9252393BE00B36662 /* SpotifyHelper.swift in Sources */,
 				346AD9022524F119005F3E3E /* GeniusHit.swift in Sources */,
 				346AF72F25225CCB00FE81AA /* Constants.swift in Sources */,
+				343E50FF25FE6FB400354287 /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
