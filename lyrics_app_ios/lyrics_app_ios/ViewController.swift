@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     
     func onNewSong(song: SpotifySong) {
         var labelText = NSLocalizedString("no_song_playing_lbl", comment: "")
-        var lyricsText = ""
+        var lyricsText = NSLocalizedString("no_song_playing_lbl", comment: "")
         if song.isPlaying && song.currentlyPlayingType == "track" {
             labelText = song.name
             lyricsText = NSLocalizedString("fetching_new_lyrics_lbl", comment: "")
